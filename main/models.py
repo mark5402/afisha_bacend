@@ -16,7 +16,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(null=True, blank=True)
     genres = models.TextField(null=True, blank=True)
-    cinema = models.ForeignKey(Cinema, on_delete=models.CASCADE, null=True, blank=True)
+    cinema = models.ForeignKey(Cinema, on_delete=models.CASCADE, null=True)
 
     #
     def __str__(self):
@@ -25,7 +25,7 @@ class Movie(models.Model):
 
 class Review(models.Model):
     text = models.CharField(max_length=50)
-    # movie = models.ManyToManyField(Movie, null=True)
+    movie = models.ManyToManyField(Movie, null=True)
 
     #
     def __str__(self):
